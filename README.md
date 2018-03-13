@@ -59,9 +59,7 @@ Project Contributors :
 
 Team Bug Assassins
 
-1. Ashish Kedia (ashish1294@gmail.com)
+1. Ankush Kumar
 
-2. Ajith P S (ajithpandel@gmail.com)
-
-3. Adarsh Mohata (amohta163@gmail.com)
+2. Apoorva Raj
 
