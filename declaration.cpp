@@ -23,16 +23,13 @@ extern int game_state;
 extern bool ship_left, ship_right;
 extern int ship_x, ship_y;
 extern unsigned int ship_span, FPS, UNIT_MOVE;
-extern GLfloat ship_points[13][2];
+
 
 //Bomb Variables
 extern unsigned int MAX_BOMB;
-extern GLfloat bomb_pos[MAX_MAX_BOMB][2];
-extern bool bomb_present[MAX_MAX_BOMB],bomb_shape[MAX_MAX_BOMB];
-extern unsigned int BOMB_COUNT, bomb_speed[MAX_MAX_BOMB], bomb_color[MAX_MAX_BOMB][3];
 
 //Bullets Variable
-extern std::vector<struct bullet> bullets;
+
 
 //Score Variables
 extern long long int curr_score,high_score;

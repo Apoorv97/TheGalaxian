@@ -43,61 +43,6 @@ void draw_main_ship(int x, int y)
     glPopMatrix();
     glFlush();
 }
-void draw_bombs()
-{
-    glColor3f(0.2, 0.8, 0.4);
-    unsigned int i;
-    if(BOMB_COUNT!=MAX_BOMB)
-    {
-        for(i=0;i<MAX_BOMB;i++)
-            if(bomb_present[i]==false)
-            {
-                bomb_present[i] = true;
-                bomb_pos[i][0] = (seg_len*i) + VARD + rand()%((int)(seg_len-VARD-VARD+1));
-                bomb_pos[i][1] = height-(3*VARD);
-                bomb_speed[i] = BOMB_MIN_SEC + (rand()%((int)(BOMB_MAX_SEC-BOMB_MIN_SEC+1)));
-                bomb_shape[i] = rand()%2;
-                bomb_color[i][0] = rand()%10000;
-                bomb_color[i][1] = rand()%10000;
-                bomb_color[i][2] = rand()%10000;
-                BOMB_COUNT++;
-            }
-    }
-    for(i=0;i<MAX_BOMB;i++)
-    {
-        glPushMatrix();
-        glTranslatef(bomb_pos[i][0],bomb_pos[i][1],0);
-        glColor3f(0.0001 + bomb_color[i][0]/10000.0, 0.0001 + bomb_color[i][1]/10000.0, 0.0001 + bomb_color[i][2]/10000.0);
-        if(bomb_shape[i])
-        {
-            glBegin(GL_POLYGON);
-                glVertex2f(-VARD,-VARD);
-                glVertex2f(VARD,-VARD);
-                glVertex2f(VARD,VARD);
-                glVertex2f(-VARD,VARD);
-            glEnd();
-        }
-        else
-        {
-            dispcir(0,0,VARD);
-        }
-        glPopMatrix();
-    }
-}
-
-void draw_bullets()
-{
-    unsigned int i;
-    glColor3f(1.0, 0, 0);
-    glPointSize(5);
-    glBegin(GL_POINTS);
-    for(i=0;i<bullets.size();i++)
-    {
-        glVertex2i(bullets[i].x,bullets[i].y);
-    }
-    glEnd();
-    glPointSize(1);
-}
 
 void draw_score(long long int score)
 {
@@ -480,13 +425,6 @@ void draw_thank_you()
 
 
         glPushMatrix();
-        glTranslatef(80,350,0);
-        glScalef(0.4,0.4,0);
-        glColor3f(105/255.0,64/255.0,239/255.0);
-        draw_string("Bug Assassins");
-        glPopMatrix();
-
-        glPushMatrix();
         glTranslatef(100,250,0);
         glScalef(0.25,0.25,0);
         glColor3f(240/255.0,212/255.0,30/255.0);
@@ -500,13 +438,6 @@ void draw_thank_you()
         draw_string("2. Apoorva Raj");
         glPopMatrix();
 
-
-        // glPushMatrix();
-        // glTranslatef(100,150,0);
-        // glScalef(0.25,0.25,0);
-        // glColor3f(240/255.0,212/255.0,30/255.0);
-        // draw_string("3. Ashish Kedia");
-        // glPopMatrix();
 
     glPopMatrix();
 
@@ -542,8 +473,7 @@ void maindisp()
     if(game_state == 2)
     {
         draw_main_ship(ship_x,ship_y);
-        draw_bombs();
-        draw_bullets();
+        
     }
     else if (game_state == 3)
     {
