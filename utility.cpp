@@ -128,7 +128,7 @@ void exit_game()
     set_high_score();
     bullets.clear();
     printf("Thank You For Playing Galaxian !!\n\n\n");
-    printf("This Game was made by :\n1. Ashish Kedia (12IT14)\n2. Ajith P S (12IT04)\n3. Adarsh Mohata (12IT03)\nNational Institute of Technology Karnataka, Surathkal");
+    printf("This Game was made by :\n1. Ankush Kumar (1PE15CS024)\n2. Apoorva Raj (1PE15CS027)\n\nPESIT BSC Bangalore, Karnataka");
     printf("\n\nYour Score : %lld\nHigh Score : %lld\n\n",curr_score,high_score);
     exit(0);
 }
